@@ -1,5 +1,14 @@
 # Ruby on Rails on Docker
 
+## Ruby version
+ - [.ruby-version](https://github.com/hihats/ruby-on-rails-pg-on-docker/blob/master/.ruby-version)
+
+
+## Gem versions
+- Ruby on Rails [![Gem Version](https://badge.fury.io/rb/rails.svg)](https://badge.fury.io/rb/rails)
+
+- rubocop [![Gem Version](https://badge.fury.io/rb/rubocop.svg)](https://badge.fury.io/rb/rubocop)
+
 # Setup Dockerized development environment
 - Docker環境をローカルマシンに作成
 - bundlerでFWなどのパッケージを導入して使用する想定
