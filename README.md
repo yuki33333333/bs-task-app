@@ -62,7 +62,7 @@ $ docker ps
 ```
 
 ## データベースのConnection設定
-生成された`database.yml`の `development:` 配下に
+生成された`config/database.yml`の `development:` 配下に
 ```
 database: <%= ENV['PG_DATABASE'] %>
 username: <%= ENV['PG_USER'] %>
@@ -74,7 +74,7 @@ host: db
 
 ### 設定変更後はコンテナを再起動する
 ```
-$ docker-compsose restart app
+$ docker-compose restart app
 ```
 
 ## ブラウザでRailsの起動確認
