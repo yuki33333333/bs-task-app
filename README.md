@@ -46,11 +46,13 @@ $ docker-machine env myrailsapp
 
 ## Gemfile確認
 DefaultではRuby on Rails最低限のGemのみ記載
-この上に必要なものを追加していきます。
+この上に必要なGemを追加していきます。
 
 
-## Docker Container Setup
-docker-composeコマンドを使い、複数コンテナを起動する
+## Docker Container build
+docker-composeコマンドを使い、複数コンテナをbuild〜起動していく
+
+### コンテナ構成
 - app
 - db
 - node（初期は使わないので削除してもよい）
@@ -59,9 +61,15 @@ docker-composeコマンドを使い、複数コンテナを起動する
 ```
 $ docker-compose build
 Successfully built.
+```
 
+## Generation packages by rails new
+```
 $ docker-compose run --rm app rails new . -d postgresql --skip-bundle --skip-turbolinks --skip-test
+```
 
+## 起動
+```
 $ docker-compose up -d
 ```
 
@@ -80,6 +88,8 @@ host: db
 ```
 を追加修正
 ** postgresのdockerイメージは起動時に初期DBや初期ユーザをよしなに作成してくれることを留意しておく **
+
+[postgresイメージに渡せる環境変数の参照](https://hub.docker.com/_/postgres)
 
 ### 設定変更後はコンテナを再起動する
 ```
