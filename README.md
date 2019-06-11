@@ -65,7 +65,7 @@ Successfully built.
 
 ## Generation packages by rails new
 ```
-$ docker-compose run --rm app rails new . -d postgresql --skip-bundle --skip-turbolinks --skip-test
+$ docker-compose run --rm app rails new . -d postgresql --skip-bundle --skip-turbolinks --skip-test --skip
 ```
 
 ## 起動
