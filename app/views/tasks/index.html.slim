@@ -1,6 +1,8 @@
 .header
     .header__left
     .header__right
+.flashMessage
+    = flash[:success]
 .taskList
     .taskList__top
         .taskList__top__title
@@ -14,9 +16,3 @@
                 tr
                     td = task.name
                     td = task.description
-
-
-
-
-        
-
