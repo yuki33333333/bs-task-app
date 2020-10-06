@@ -7,7 +7,6 @@
     .taskList__top
         .taskList__top__title
         .taskList__top__createButtun
-            = link_to "Create A New Task", new_task_path
     .taskList__main
         table
             tr
@@ -19,3 +18,4 @@
                     td = task.description
                     td = link_to "Edit", edit_task_path(task.id)
                     td = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }
+
