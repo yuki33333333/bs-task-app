@@ -1,0 +1,22 @@
+.header
+    .header__left
+    .header__right
+.taskList
+    .taskList__top
+        .taskList__top__title
+        .taskList__top__createButtun
+    .taskList__main
+        table
+            tr
+                th タスク
+                th 説明
+            - @tasks.each do |task|
+                tr
+                    td = task.name
+                    td = task.description
+
+
+
+
+        
+
