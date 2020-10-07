@@ -1,12 +1,4 @@
 h1 タスク編集
-= form_for(@task) do |f|
-    table
-        tr
-            td = f.label :name
-            td = f.text_field :name
-        tr
-            td = f.label :description
-            td = f.text_field :description
-    = f.submit "Save"
+= render partial: "form", locals: {task: @task}
 p = link_to "Back to Index page", tasks_path
 p = link_to "Back to Show page", @task
