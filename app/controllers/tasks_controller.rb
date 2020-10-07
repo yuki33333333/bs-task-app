@@ -40,8 +40,4 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:name, :description)
     end
-<<<<<<< HEAD
-
-=======
->>>>>>> 2e044fe... new, edit画面雛形作成
 end
