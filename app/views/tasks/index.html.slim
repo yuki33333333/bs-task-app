@@ -1,10 +1,14 @@
+h1 タスク一覧
 .header
     .header__left
     .header__right
+.flashMessage
+    = flash[:success]
 .taskList
     .taskList__top
         .taskList__top__title
         .taskList__top__createButtun
+            = link_to "Create A New Task", new_task_path
     .taskList__main
         table
             tr
@@ -14,9 +18,5 @@
                 tr
                     td = task.name
                     td = task.description
-
-
-
-
-        
-
+                    td = link_to "Edit", edit_task_path(task.id)
+                    td = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }
