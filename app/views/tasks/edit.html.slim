@@ -8,3 +8,5 @@ h1 タスク編集
             td = f.label :description
             td = f.text_field :description
     = f.submit "Save"
+p = link_to "Back to Index page", tasks_path
+p = link_to "Back to Show page", @task

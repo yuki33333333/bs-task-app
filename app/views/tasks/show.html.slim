@@ -1,3 +1,4 @@
+h1 タスク詳細
 = flash[:success]
 table
     tr
@@ -6,3 +7,5 @@ table
     tr
         td = @task.name
         td = @task.description
+p = link_to "Edit", edit_task_path
+p = link_to "delete", task_path, method: :delete, data: { confirm: "You sure?" }
