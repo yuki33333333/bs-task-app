@@ -1,3 +1,4 @@
 h1 タスク新規作成
+= flash[:alert]
 = render partial: "form", locals: {task: @task}
 p = link_to "Back to Index page", tasks_path
