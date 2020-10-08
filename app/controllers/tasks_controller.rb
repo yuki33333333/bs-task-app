@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :find_task, only: %i(show edit update destroy)
+  
   def index
     @tasks = Task.all
   end
 
   def show
-    @task = Task.find(params[:id])
   end
   
   def new
@@ -17,32 +18,37 @@ class TasksController < ApplicationController
       flash[:success] = "Task created"
       redirect_to @task
     else
+      flash[:alert] = "Failed"
       render 'new'
     end
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "Task updated"
       redirect_to tasks_path
     else
+      lash[:alert] = "Failed"
       render 'edit'
     end
   end
 
   def destroy
-    Task.find(params[:id]).destroy
+    @task.destroy
     flash[:success] = "Task deleted"
     redirect_to tasks_path
   end
+  
   private
 
     def task_params
       params.require(:task).permit(:name, :description)
+    end
+
+    def find_task
+      @task = Task.find(params[:id])
     end
 end
