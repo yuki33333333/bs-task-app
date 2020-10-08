@@ -1,5 +1,4 @@
 h1 タスク編集
-= flash[:alert]
 = render partial: "form", locals: {task: @task}
 p = link_to "Back to Index page", tasks_path
 p = link_to "Back to Show page", @task

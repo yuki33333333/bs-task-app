@@ -1,4 +1,8 @@
 = form_for(task) do |f|
+    - if task.errors.any?
+        ul
+            - task.errors.full_messages.each do |message|
+                li = message
     table
         tr
             td = f.label :name
