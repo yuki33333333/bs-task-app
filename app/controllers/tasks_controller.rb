@@ -18,7 +18,6 @@ class TasksController < ApplicationController
       flash[:success] = "Task created"
       redirect_to @task
     else
-      flash[:alert] = "Failed"
       render 'new'
     end
   end
@@ -31,7 +30,6 @@ class TasksController < ApplicationController
       flash[:success] = "Task updated"
       redirect_to tasks_path
     else
-      lash[:alert] = "Failed"
       render 'edit'
     end
   end
