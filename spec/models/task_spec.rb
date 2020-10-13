@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-
   describe 'バリデーションが有効かどうか' do
     it "is invalid without name column" do
       task = Task.new()
@@ -10,17 +9,17 @@ RSpec.describe Task, type: :model do
     end
   end
 
-  describe 'タスク登録ができるかどうか' do
-
+  describe 'タスク新規作成ができるかどうか' do
+    # タスク名だけでタスク新規作成できるか
     it "is valid with name colmun" do
       task = Task.new(name: "掃除")
       expect(task).to be_valid
     end
 
+    # タスク名と説明でタスク新規作成できるか
     it "is valid with name, describe colmun" do
-      task = Task.new(name: "掃除", description: "掃除")
+      task = build(:task)
       expect(task).to be_valid
     end
-
   end
 end
