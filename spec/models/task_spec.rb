@@ -1,25 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  describe 'バリデーションが有効かどうか' do
-    it "is invalid without name column" do
-      task = Task.new()
-      task.valid?
-      expect(task.errors.messages[:name]).to include('を入力してください')
-    end
-  end
+  describe 'validation' do
+    context 'invalid' do
+      let(:task) { build(:task, name: nil) }
 
-  describe 'タスク新規作成ができるかどうか' do
-    # タスク名だけでタスク新規作成できるか
-    it "is valid with name colmun" do
-      task = Task.new(name: "掃除")
-      expect(task).to be_valid
+      it "is invalid without name column" do
+        task.valid?
+        expect(task.errors.messages[:name]).to include('を入力してください')
+      end
     end
 
-    # タスク名と説明でタスク新規作成できるか
-    it "is valid with name, describe colmun" do
-      task = build(:task)
-      expect(task).to be_valid
+    context 'valid' do
+      let(:task) { build(:task, description: nil) }
+
+      it "is valid with name colmun" do
+        expect(task).to be_valid
+      end
+    end
+
+    context 'valid' do
+      let(:task) { build(:task) }
+
+      it "is valid with name, describe colmun" do
+        expect(task).to be_valid
+      end
     end
   end
 end
