@@ -11,7 +11,7 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    context 'valid' do
+    context 'valid with name colmun' do
       let(:task) { build(:task, description: nil) }
 
       it "is valid with name colmun" do
@@ -19,7 +19,7 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    context 'valid' do
+    context 'valid with name, describe colmun' do
       let(:task) { build(:task) }
 
       it "is valid with name, describe colmun" do
