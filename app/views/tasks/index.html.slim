@@ -1,6 +1,10 @@
 h1 タスク一覧
 .flashMessage
     = flash[:success]
+= form_with model: @task, url: search_path, method: :get, local: true do |form|
+  = form.select :keyword, [ ['作成日が新しい順', 'new_create_date'],
+                            ['終了期限が近い順', 'close_limit_date'] ]
+  = form.submit '並べ替え'
 .taskList
     .taskList__top
         .taskList__top__title
