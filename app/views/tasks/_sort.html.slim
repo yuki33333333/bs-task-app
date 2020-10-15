@@ -1,0 +1,4 @@
+= form_with model: @task, url: search_path, method: :get, local: true do |form|
+  = form.select :keyword, [ ['作成日が新しい順', 'new_create_date'],
+                            ['終了期限が古い順', 'old_limit_date'] ]
+  = form.submit '並べ替え'
