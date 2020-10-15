@@ -11,10 +11,13 @@ h1 タスク一覧
             tr
                 th タスク
                 th 説明
+                th ID
+                th 終了期限
             - @tasks.each do |task|
                 tr
                     td.task-name = task.name
                     td = task.description
                     td = task.id
+                    td = task.limit
                     td = link_to "Edit", edit_task_path(task.id)
                     td = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }
