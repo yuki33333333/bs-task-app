@@ -41,6 +41,11 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def search
+    selection = params[:keyword]
+    @tasks = Task.sort(selection)
+  end
+
   private
 
     def task_params
