@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i(show edit update destroy)
-  
+
   def index
     @tasks = Task.all
               .order(created_at: "DESC")
@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   def show
   end
-  
+
   def new
     @task = Task.new
   end
@@ -40,11 +40,11 @@ class TasksController < ApplicationController
     flash[:success] = "Task deleted"
     redirect_to tasks_path
   end
-  
+
   private
 
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, :limit)
     end
 
     def find_task
