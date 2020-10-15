@@ -12,6 +12,6 @@
         td = f.text_field :description
       tr
         td = f.label :limit
-        td = f.date_select :limit
+        td = f.date_select :limit, include_blank: true
 
   = f.submit "Save"
