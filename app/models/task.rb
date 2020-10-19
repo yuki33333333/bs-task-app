@@ -4,9 +4,9 @@ class Task < ApplicationRecord
   def self.sort(selection)
     case selection
     when 'new_create_date'
-      return all.order(created_at: :DESC)
+      all.order(created_at: :DESC)
     when 'old_limit_date'
-      return all.order(limit: :ASC)
+      all.order(limit: :ASC)
     end
   end
 end
