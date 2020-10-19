@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Tasks', type: :system do
   describe 'ソート' do
-    let(:task1) { create(:task, name: 'task1', description: 'task1') }
-    let(:task2) { create(:task, name: 'task2', description: 'task2', created_at: Time.current + 1.days) }
-    let(:task3) { create(:task, name: 'task3', description: 'task3', created_at: Time.current + 2.days) }
+    let!(:task1) { create(:task, name: 'task1', description: 'task1') }
+    let!(:task2) { create(:task, name: 'task2', description: 'task2', created_at: Time.current + 1.days) }
+    let!(:task3) { create(:task, name: 'task3', description: 'task3', created_at: Time.current + 2.days) }
 
     it 'タスク作成日時の降順であること' do
       # Task一覧画面を開く
