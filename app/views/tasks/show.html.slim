@@ -4,8 +4,10 @@ table
     tr
         th タスク
         th　説明
+        th 終了期限
     tr
         td = @task.name
         td = @task.description
+        td = @task.limit
 p = link_to "Edit", edit_task_path
 p = link_to "delete", task_path, method: :delete, data: { confirm: "You sure?" }

@@ -1,13 +1,17 @@
 = form_for(task) do |f|
-    - if task.errors.any?
-        ul
-            - task.errors.full_messages.each do |message|
-                li = message
-    table
-        tr
-            td = f.label :name
-            td = f.text_field :name
-        tr
-            td = f.label :description
-            td = f.text_field :description
-    = f.submit "Save"
+  - if task.errors.any?
+    ul
+      - task.errors.full_messages.each do |message|
+        li = message
+  table
+      tr
+        td = f.label :name
+        td = f.text_field :name
+      tr
+        td = f.label :description
+        td = f.text_field :description
+      tr
+        td = f.label :limit
+        td = f.date_select :limit, include_blank: true
+
+  = f.submit "Save"
