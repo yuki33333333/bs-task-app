@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  include TasksHelper
+
   before_action :find_task, only: %i(show edit update destroy)
 
   def index
@@ -43,6 +45,11 @@ class TasksController < ApplicationController
 
   def search
     selection = params[:keyword]
+    unless SORT_OPTION_ARRAY.include?(selection)
+      render(:index, status: :bad_request)
+      return
+    end
+
     @tasks = Task.sort(selection)
     render 'index'
   end
