@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   validates :name, presence: true
 
+  enum status: [ :wating, :doing, :done ]
+
   def self.sort(selection)
     case selection
     when 'new_create_date'
