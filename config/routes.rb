@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :tasks do
-    get 'search', on: :collection
+    get 'sort', on: :collection
   end
 end

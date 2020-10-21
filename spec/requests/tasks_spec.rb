@@ -12,8 +12,8 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
-  describe 'GET /tasks/search' do
-    subject { get search_tasks_path, params: { keyword: keyword, commit: "並べ替え" } }
+  describe 'GET /tasks/sort' do
+    subject { get sort_tasks_path, params: { keyword: keyword, commit: "並べ替え" } }
 
     context 'sorted by created_at' do
       let(:keyword) { "new_create_date" }

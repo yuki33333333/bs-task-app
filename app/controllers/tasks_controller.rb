@@ -43,7 +43,7 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def search
+  def sort
     selection = params[:keyword]
     unless SORT_OPTION_ARRAY.include?(selection)
       render(:index, status: :bad_request)
