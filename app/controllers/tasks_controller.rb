@@ -13,6 +13,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @statuses = Task.statuses.keys
   end
 
   def create
@@ -26,6 +27,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @statuses = Task.statuses.keys
   end
 
   def update
@@ -54,10 +56,28 @@ class TasksController < ApplicationController
     render 'index'
   end
 
+  def filter
+    option = params[:filter_option]
+    statuses = Task.statuses.keys
+    unless statuses.include?(option)
+      render(:index, status: :bad_request)
+      return
+    end
+
+    @tasks = Task.filter(option)
+    render 'index'
+  end
+
+  def search
+    keyword = params[:keyword]
+    @tasks = Task.search(keyword)
+    render 'index'
+  end
+
   private
 
     def task_params
-      params.require(:task).permit(:name, :description, :limit)
+      params.require(:task).permit(:name, :description, :limit, :status)
     end
 
     def find_task
