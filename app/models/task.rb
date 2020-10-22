@@ -3,8 +3,8 @@ class Task < ApplicationRecord
 
   enum status: %i( waiting doing done )
 
-  def self.sort(selection)
-    case selection
+  def self.sort(option)
+    case option
     when 'new_create_date'
       all.order(created_at: :DESC)
     when 'old_limit_date'

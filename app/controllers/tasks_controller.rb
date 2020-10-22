@@ -46,13 +46,13 @@ class TasksController < ApplicationController
   end
 
   def sort
-    selection = params[:keyword]
-    unless SORT_OPTION_ARRAY.include?(selection)
+    option = params[:sort_option]
+    unless SORT_OPTION_ARRAY.include?(option)
       render(:index, status: :bad_request)
       return
     end
 
-    @tasks = Task.sort(selection)
+    @tasks = Task.sort(option)
     render 'index'
   end
 
