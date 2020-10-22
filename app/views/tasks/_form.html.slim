@@ -13,5 +13,8 @@
       tr
         td = f.label :limit
         td = f.date_select :limit, include_blank: true
+      tr
+        td = f.label :status
+        td = f.select :status, statuses
 
   = f.submit "Save"

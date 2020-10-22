@@ -1,0 +1,3 @@
+= form_with model: @task, url: filter_tasks_path, method: :get, local: true do |form|
+  = form.select :filter_option, Task.statuses.keys, selected: params[:filter_option]
+  = form.submit '絞り込み'

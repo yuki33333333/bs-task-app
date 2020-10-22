@@ -10,6 +10,7 @@
                 th 説明
                 th ID
                 th 終了期限
+                th ステータス
             - if @tasks
               - @tasks.each do |task|
                   tr
@@ -17,5 +18,6 @@
                       td = task.description
                       td = task.id
                       td = task.limit
+                      td = task.status
                       td = link_to "Edit", edit_task_path(task.id)
                       td = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }
