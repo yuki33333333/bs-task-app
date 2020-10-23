@@ -13,6 +13,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @statuses = Task.statuses.keys
   end
 
   def create
@@ -26,6 +27,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @statuses = Task.statuses.keys
   end
 
   def update
@@ -43,21 +45,39 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def search
-    selection = params[:keyword]
-    unless SORT_OPTION_ARRAY.include?(selection)
+  def sort
+    option = params[:sort_option]
+    unless SORT_OPTION_ARRAY.include?(option)
       render(:index, status: :bad_request)
       return
     end
 
-    @tasks = Task.sort(selection)
+    @tasks = Task.sort(option)
+    render 'index'
+  end
+
+  def filter
+    option = params[:filter_option]
+    statuses = Task.statuses.keys
+    unless statuses.include?(option)
+      render(:index, status: :bad_request)
+      return
+    end
+
+    @tasks = Task.filter(option)
+    render 'index'
+  end
+
+  def search
+    keyword = params[:keyword]
+    @tasks = Task.search(keyword)
     render 'index'
   end
 
   private
 
     def task_params
-      params.require(:task).permit(:name, :description, :limit)
+      params.require(:task).permit(:name, :description, :limit, :status)
     end
 
     def find_task

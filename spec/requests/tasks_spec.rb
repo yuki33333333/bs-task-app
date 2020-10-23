@@ -12,11 +12,11 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
-  describe 'GET /tasks/search' do
-    subject { get search_tasks_path, params: { keyword: keyword, commit: "並べ替え" } }
+  describe 'GET /tasks/sort' do
+    subject { get sort_tasks_path, params: { sort_option: sort_option, commit: "並べ替え" } }
 
     context 'sorted by created_at' do
-      let(:keyword) { "new_create_date" }
+      let(:sort_option) { "new_create_date" }
 
       it do
         subject
@@ -25,7 +25,7 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context 'when sorted by limit' do
-      let(:keyword) { "old_limit_date" }
+      let(:sort_option) { "old_limit_date" }
 
       it do
         subject
@@ -34,7 +34,7 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context 'sent different query' do
-      let(:keyword) { "hoge" }
+      let(:sort_option) { "hoge" }
 
       it do
         subject

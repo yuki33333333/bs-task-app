@@ -1,4 +1,4 @@
 h1 タスク編集
-= render partial: "form", locals: {task: @task}
+= render partial: "form", locals: {task: @task, statuses: @statuses}
 p = link_to "Back to Index page", tasks_path
 p = link_to "Back to Show page", @task
