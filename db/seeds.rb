@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: "Yukimi", email: "y.honda@buysell-technologies.com")
+Task.create(name: "掃除", description: "掃除", user_id: 1)
