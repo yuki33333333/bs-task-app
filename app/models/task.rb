@@ -12,8 +12,8 @@
 #
 class Task < ApplicationRecord
   validates :name, presence: true
-
   enum status: %i( waiting doing done )
+  belongs_to :user
 
   def self.sort(option)
     case option
