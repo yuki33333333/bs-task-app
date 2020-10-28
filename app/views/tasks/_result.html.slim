@@ -1,23 +1,46 @@
 .taskList
     .taskList__top
         .taskList__top__title
-        .taskList__top__createButtun
-            = link_to "Create A New Task", new_task_path
+          | Task List
+        .taskList__top__createButton
+          = link_to "CREATE A NEW TASK", new_task_path, class:"btn btn-secondary"
+        .taskList__top__search
+          = render 'search'
+    .taskList__middle
+      .taskList__middle__filter
+        = render 'filter'
+      .taskList__middle__sort
+        = render 'sort'
     .taskList__main
-        table.tasks
+        table.tasks.table
             tr
-                th タスク
-                th 説明
+                th STATE
+                th NAME
+                th DESCRIPTION
                 th ID
-                th 終了期限
-                th ステータス
+                th LIMIT
+                th
+                th
             - if @tasks
               - @tasks.each do |task|
                   tr
+                    td
+                      / - if task.status === 'waiting'
+                      /   .taskList__main__state style="background-color: red;"
+                      /     = task.status
+                      - case task.status
+                      - when 'waiting'
+                        .taskList__main__state style="background-color: #F09D41;"
+                          = task.status
+                      - when 'doing'
+                        .taskList__main__state style="background-color: #91BABF;"
+                          = task.status
+                      - when 'done'
+                        .taskList__main__state style="background-color: #EFEFEF;"
+                          = task.status
                       td.task-name = task.name
                       td = task.description
                       td = task.id
                       td = task.limit
-                      td = task.status
-                      td = link_to "Edit", edit_task_path(task.id)
-                      td = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }
+                      td.btn-edit = link_to "Edit", edit_task_path(task.id), class:"btn btn-secondary"
+                      td.btn-delete = link_to "Delete", task_path(task.id), method: :delete, data: { confirm: "You sure?" }, class:"btn btn-secondary"

@@ -14,3 +14,34 @@
  */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+@import "tasks";
+
+.header {
+  height: 76px;
+  background-color: #EFEFEF;
+  display: flex;
+
+  &__left {
+    width: 248px;
+    padding-top: 10px;
+    padding-left: 28px;
+    font-family: Lato;
+    font-weight: 600;
+    letter-spacing: -2px;
+    font-size: 36px;
+    margin-left: 10px;
+  }
+
+  &__right {
+    width: 100px;
+    margin: 0 0 0 auto;
+    font-size: 32px;
+
+    a {
+      margin-top: 18px;
+      background-color: #D9D9D9;
+      color: black;
+      border: none;
+    }
+  }
+}

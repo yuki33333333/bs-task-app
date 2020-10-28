@@ -7,10 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
     <%= render "tasks/header" %>
-    <%= yield %>
+      <div class = container>
+        <%= yield %>
+      </div>
   </body>
 </html>
