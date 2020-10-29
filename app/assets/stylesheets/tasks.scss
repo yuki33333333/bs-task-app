@@ -2,7 +2,9 @@
   &__top {
     margin-top: 28px;
     display: flex;
+
     &__createButton {
+
       a {
         width: 260px;
         height: 44px;
@@ -15,25 +17,29 @@
         font-size: 20px;
       }
     }
+
     &__title {
       margin-right: 128px;
       font-size: 44px;
     }
+
     &__search {
       margin: 16px 0 auto auto;
     }
   }
+
   &__middle {
     display: flex;
     margin-top: 24px;
+
     &__sort {
       margin-left: 58px;
     }
-    &__filter {
-    }
   }
+
   &__main {
     margin-top: 28px;
+
     &__state {
       width: 64px;
       height: 36px;
@@ -46,6 +52,7 @@
 }
 
 .btn-edit, .btn-delete {
+
   a {
     border: none;
     color: black;
