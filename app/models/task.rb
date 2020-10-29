@@ -1,7 +1,19 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  description :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  limit       :date
+#  status      :integer
+#
 class Task < ApplicationRecord
   validates :name, presence: true
-
   enum status: %i( waiting doing done )
+  belongs_to :user
 
   def self.sort(option)
     case option
