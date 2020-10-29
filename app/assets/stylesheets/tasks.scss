@@ -1,3 +1,61 @@
-// Place all the styles related to the Tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.taskList {
+  &__top {
+    margin-top: 28px;
+    display: flex;
+
+    &__createButton {
+
+      a {
+        width: 260px;
+        height: 44px;
+        margin-top: 16px;
+        margin-left: 112px;
+        padding-top: 8px;
+        border: none;
+        background-color: #FCD300;
+        color: black;
+        font-size: 20px;
+      }
+    }
+
+    &__title {
+      margin-right: 128px;
+      font-size: 44px;
+    }
+
+    &__search {
+      margin: 16px 0 auto auto;
+    }
+  }
+
+  &__middle {
+    display: flex;
+    margin-top: 24px;
+
+    &__sort {
+      margin-left: 58px;
+    }
+  }
+
+  &__main {
+    margin-top: 28px;
+
+    &__state {
+      width: 64px;
+      height: 36px;
+      padding: 4px;
+      border-radius: 0.25rem;
+      text-align: center;
+      color: white;
+    }
+  }
+}
+
+.btn-edit, .btn-delete {
+
+  a {
+    border: none;
+    color: black;
+    background-color: #F3F3F3;
+  }
+}
