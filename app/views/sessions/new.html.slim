@@ -1,0 +1,11 @@
+h1 ログイン
+
+.form-group
+  = form_with url: login_path, method: :POST do |f|
+    = f.label :mail
+    = f.text_field :mail, class: "form-control"
+
+    = f.label :password
+    = f.text_field :password, class: "form-control"
+
+    = f.button "Log in", type: "submit", class:"btn btn-secondary"
