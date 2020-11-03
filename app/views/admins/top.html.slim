@@ -1,0 +1,14 @@
+- if @current_admin
+  h1 ユーザー一覧
+  table.table
+    tr
+      th ID
+      th NAME
+      th MAIL
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.name
+        td = user.email
+- else
+  p 404 not found
