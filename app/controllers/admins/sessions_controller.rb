@@ -15,7 +15,7 @@ class Admins::SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to login_path
+    redirect_to admins_login_path
   end
 
   private
