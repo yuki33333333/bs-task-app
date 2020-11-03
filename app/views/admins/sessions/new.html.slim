@@ -1,0 +1,13 @@
+h1 管理画面ログイン
+
+= flash[:danger]
+
+.form-group
+  = form_for :session, url: admins_login_path, method: :post do |f|
+    = f.label :mail
+    = f.text_field :mail, class: "form-control"
+
+    = f.label :password
+    = f.text_field :password, class: "form-control"
+
+    = f.button "Log in", type: "submit", class:"btn btn-secondary"
