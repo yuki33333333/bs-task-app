@@ -1,7 +1,4 @@
 .header
     .header__left Task App
     .header__right
-      - if signed_in?
-        = button_to "Log out", logout_path, method: :delete, class: "btn btn-secondary"
-      - else
-        = link_to "Log in", login_path, class: "btn btn-secondary"
+      = link_to "Log in", '#', class: "btn btn-secondary"
