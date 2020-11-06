@@ -23,4 +23,14 @@ class Admins::SessionsController < ApplicationController
   def session_params
     params.require(:session).permit(:mail, :password)
   end
+
+  def log_in(admin)
+    session[:admin_id] = admin.id
+  end
+
+  def log_out
+    @current_admin = nil
+    session.delete(:admin_id)
+  end
+
 end
