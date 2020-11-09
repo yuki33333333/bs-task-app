@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'hello_vue/index'
 
+  resources :users
+
   resources :tasks do
     collection do
       get 'sort'
