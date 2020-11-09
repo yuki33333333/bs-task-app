@@ -6,7 +6,7 @@ class Users::SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
       sign_in(user)
-      redirect_to users_tasks_path
+      redirect_to tasks_path
     else
       flash.now[:danger] = 'invalid email or password'
       render 'new'

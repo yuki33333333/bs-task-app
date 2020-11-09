@@ -13,10 +13,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def tasks
-    @tasks = Task.where(user_id: session[:user_id])
-  end
-
   private
 
   def user_params

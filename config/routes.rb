@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'hello_vue/index'
 
   resources :users, only: [:new, :create]
-  get 'users/tasks' => 'users#tasks'
   namespace :users do
     get '/signin' => 'sessions#new'
     post '/signin' => 'sessions#create'
