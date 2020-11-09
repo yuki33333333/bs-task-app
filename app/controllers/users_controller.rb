@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @tasks = Task.where(user_id: params[:id])
+  def tasks
+    @tasks = Task.where(user_id: session[:user_id])
   end
 
   private
