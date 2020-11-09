@@ -1,11 +1,13 @@
 class TasksController < ApplicationController
   include TasksHelper
+  include Users::SessionsHelper
 
+  before_action :check_signin
   before_action :find_task, only: %i(show edit update destroy)
 
   def index
-    @tasks = Task.where(user_id: session[:user_id])
-              .order(created_at: "DESC")
+    @tasks = Task.order(created_at: "DESC")
+    @tasks = set_user_tasks(@tasks)
   end
 
   def show
@@ -18,6 +20,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.update_attributes(user_id: session[:user_id])
     @statuses = Task.statuses.keys
     if @task.save
       flash[:success] = "Task created"
@@ -54,6 +57,7 @@ class TasksController < ApplicationController
     end
 
     @tasks = Task.sort(option)
+    @tasks = set_user_tasks(@tasks)
     render 'index'
   end
 
@@ -66,22 +70,28 @@ class TasksController < ApplicationController
     end
 
     @tasks = Task.filter(option)
+    @tasks = set_user_tasks(@tasks)
     render 'index'
   end
 
   def search
     keyword = params[:keyword]
     @tasks = Task.search(keyword)
+    @tasks = set_user_tasks(@tasks)
     render 'index'
   end
 
   private
 
-    def task_params
-      params.require(:task).permit(:name, :description, :limit, :status)
-    end
+  def task_params
+    params.require(:task).permit(:name, :description, :limit, :status)
+  end
 
-    def find_task
-      @task = Task.find(params[:id])
-    end
+  def find_task
+    @task = Task.find(params[:id])
+  end
+
+  def set_user_tasks(tasks)
+    tasks.where(user_id: session[:user_id])
+  end
 end
