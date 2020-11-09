@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i(show edit update destroy)
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: session[:user_id])
               .order(created_at: "DESC")
   end
 
@@ -18,6 +18,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @statuses = Task.statuses.keys
     if @task.save
       flash[:success] = "Task created"
       redirect_to @task
