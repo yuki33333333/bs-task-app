@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include TasksHelper
   include Users::SessionsHelper
 
-  before_action :check_signin
+  before_action :check_user_login
   before_action :find_task, only: %i(show edit update destroy)
 
   def index

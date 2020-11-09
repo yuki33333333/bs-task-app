@@ -3,11 +3,11 @@ h1 ユーザーログイン
 = flash[:danger]
 
 .form-group
-  = form_for :session, url: users_signin_path, method: :post do |f|
+  = form_for :session, url: users_login_path, method: :post do |f|
     = f.label :eail
     = f.text_field :email, class: "form-control"
 
     = f.label :password
     = f.text_field :password, class: "form-control"
 
-    = f.button "Sign in", type: "submit", class:"btn btn-secondary"
+    = f.button "Log in", type: "submit", class:"btn btn-secondary"

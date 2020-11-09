@@ -5,7 +5,7 @@ class Users::SessionsController < ApplicationController
   def create
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
-      sign_in(user)
+      user_log_in(user)
       redirect_to tasks_path
     else
       flash.now[:danger] = 'invalid email or password'
@@ -14,8 +14,8 @@ class Users::SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out
-    redirect_to users_signin_path
+    user_log_out
+    redirect_to users_login_path
   end
 
   private
@@ -24,11 +24,11 @@ class Users::SessionsController < ApplicationController
     params.require(:session).permit(:email, :password)
   end
 
-  def sign_in(user)
+  def user_log_in(user)
     session[:user_id] = user.id
   end
 
-  def sign_out
+  def user_log_out
     @current_user = nil
     session.delete(:user_id)
   end
