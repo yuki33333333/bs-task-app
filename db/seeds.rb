@@ -8,3 +8,4 @@
 
 user = User.create(name: "Yukimi", email: "y.honda@buysell-technologies.com")
 Task.create(name: "掃除", description: "掃除", user_id: user.id)
+Admin.create(name: "Yukimi", mail: "y.honda@buysell-technologies.com", password: "1234")
