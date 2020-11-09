@@ -10,13 +10,7 @@
   </head>
 
   <body>
-  <% if @current_admin %>
-    <%= render "admins/header" %>
-  <% elsif @current_user %>
-    <%= render "users/header" %>
-  <% else %>
-    <%= render "tasks/header" %>
-  <% end %>
+    <%= render "shared/header" %>
     <div class = container>
       <%= yield %>
     </div>
