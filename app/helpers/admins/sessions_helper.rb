@@ -3,7 +3,7 @@ module Admins::SessionsHelper
     @current_admin ||= Admin.find_by(id: session[:admin_id])
   end
 
-  def logged_in?
+  def admin_logged_in?
     !current_admin.nil?
   end
 end
