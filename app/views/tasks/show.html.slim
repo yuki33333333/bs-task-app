@@ -13,3 +13,4 @@ table
         td = @task.status
 p = link_to "Edit", edit_task_path
 p = link_to "delete", task_path, method: :delete, data: { confirm: "You sure?" }
+p = link_to "Go to Index Page", tasks_path
